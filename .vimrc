@@ -34,17 +34,16 @@ Plug 'beyondwords/vim-twig'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'preservim/nerdcommenter'
 " color scheme plugins
 Plug 'morhetz/gruvbox'
-" Plug 'luochen1990/rainbow'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 call plug#end()
 
-" let g:gruvbox_contrast_dark = "hard"
-" let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox
 set background=dark
 
@@ -54,12 +53,6 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:prettier#autoformat = 1
-" let g:rainbow_active = 1
-" let g:rainbow_conf = {
-" \       'separately': {
-" \               'nerdtree': 0,
-" \       }
-" \}
 
 inoremap jj <Esc>
 nmap <leader>e <Plug>(easymotion-s2)
@@ -68,3 +61,9 @@ nmap <leader>t :bnext<CR>
 nmap <leader>q :bd<CR>
 nmap <leader>w :w<CR>
 nmap <leader>s :Files<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+noremap <leader>gs :CocSearch
