@@ -53,6 +53,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:prettier#autoformat = 1
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 inoremap jj <Esc>
 nmap <leader>e <Plug>(easymotion-s2)
