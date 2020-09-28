@@ -108,6 +108,10 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 alias ll="ls -la"
 alias v="nvim"
 alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
+alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+#alias dvorak='setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift'
+alias dvorak='setxkbmap -layout es -variant dvp-latin'
+alias qwerty='setxkbmap es'
 
 # tabtab source for packages
 # uninstall by removing these lines
