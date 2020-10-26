@@ -41,6 +41,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -54,6 +55,8 @@ let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:prettier#autoformat = 1
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key=','
 
 inoremap jj <Esc>
 nmap <leader>e <Plug>(easymotion-s2)
