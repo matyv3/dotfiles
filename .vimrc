@@ -2,7 +2,8 @@
 set number
 set mouse=a
 set numberwidth=1
-set clipboard=unnamed
+"set clipboard=unnamed
+set clipboard+=unnamedplus
 syntax enable
 set showcmd
 set ruler
@@ -61,10 +62,12 @@ let g:user_emmet_leader_key=','
 inoremap jj <Esc>
 nmap <leader>e <Plug>(easymotion-s2)
 nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :bnext<CR>
 nmap <leader>q :bd<CR>
 nmap <leader>w :w<CR>
 nmap <leader>s :Files<CR>
+
+nmap <leader>t :bnext<CR>
+nmap <leader>r :bprev<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
