@@ -2,7 +2,6 @@
 set number
 set mouse=a
 set numberwidth=1
-"set clipboard=unnamed
 set clipboard+=unnamedplus
 syntax enable
 set showcmd
@@ -16,6 +15,14 @@ set noshowmode
 set backspace=2
 set termguicolors
 set encoding=UTF-8
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set nohlsearch
+set hidden
+set noerrorbells
+set smartcase
+set scrolloff=8
+
 
 call plug#begin('~/.vim/plugged')
 
