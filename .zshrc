@@ -96,7 +96,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export DENO_INSTALL="/home/molivera/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+<<<<<<< HEAD
 export PATH=$PATH:/usr/local/go/bin
+=======
+>>>>>>> b0f5b48d1da01a3d06793aa5281ab7e90a77d315
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

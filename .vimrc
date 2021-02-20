@@ -2,7 +2,7 @@
 set number
 set mouse=a
 set numberwidth=1
-set clipboard=unnamed
+set clipboard+=unnamedplus
 syntax enable
 set showcmd
 set ruler
@@ -15,6 +15,14 @@ set noshowmode
 set backspace=2
 set termguicolors
 set encoding=UTF-8
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set nohlsearch
+set hidden
+set noerrorbells
+set smartcase
+set scrolloff=8
+
 
 call plug#begin('~/.vim/plugged')
 
@@ -41,6 +49,10 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -53,14 +65,19 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$']
 let g:prettier#autoformat = 1
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key=','
 
 inoremap jj <Esc>
 nmap <leader>e <Plug>(easymotion-s2)
 nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :bnext<CR>
 nmap <leader>q :bd<CR>
 nmap <leader>w :w<CR>
 nmap <leader>s :Files<CR>
+
+nmap <leader>t :bnext<CR>
+nmap <leader>r :bprev<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
