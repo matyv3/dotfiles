@@ -53,11 +53,13 @@ Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jiangmiao/auto-pairs'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
-colorscheme gruvbox
 set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 let mapleader=" "
 let g:airline#extensions#tabline#enabled = 1
@@ -76,8 +78,10 @@ nmap <leader>q :bd<CR>
 nmap <leader>w :w<CR>
 nmap <leader>s :Files<CR>
 
-nmap <leader>t :bnext<CR>
-nmap <leader>r :bprev<CR>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprev<CR>
+
+nmap <leader>t :terminal<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
