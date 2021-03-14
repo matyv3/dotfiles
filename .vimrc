@@ -39,9 +39,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'beyondwords/vim-twig'
 Plug 'sheerun/vim-polyglot'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-"Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdcommenter'
 " color scheme plugins
 Plug 'morhetz/gruvbox'
@@ -61,6 +58,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+" prettier
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -107,4 +106,7 @@ nmap <silent> gi :lua vim.lsp.buf.implementation()<CR>
 nmap <silent> pf :lua require('telescope.builtin').find_files()<CR>
 
 
-
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
