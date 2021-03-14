@@ -39,9 +39,9 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'beyondwords/vim-twig'
 Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+"Plug 'mileszs/ack.vim'
 Plug 'preservim/nerdcommenter'
 " color scheme plugins
 Plug 'morhetz/gruvbox'
@@ -53,16 +53,20 @@ Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
 Plug 'flazz/vim-colorschemes'
 Plug 'wakatime/vim-wakatime'
-
+" lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 call plug#end()
 
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
-
 
 let mapleader=" "
 let g:airline#extensions#tabline#enabled = 1
@@ -73,10 +77,11 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
 
+" lsp
 let g:completion_matching_strategy_list = ['exact','substring','fuzzy']
+lua require('lspconfig').tsserver.setup{ on_attach=require('completion').on_attach }
 
 inoremap jj <Esc>
-nmap <leader>e <Plug>(easymotion-s2)
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>q :bd<CR>
 nmap <leader>w :w<CR>
@@ -87,10 +92,19 @@ nmap <leader>h :bprev<CR>
 
 nmap <leader>t :terminal<CR>
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-noremap <leader>gs :CocSearch
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+"noremap <leader>gs :CocSearch
 
-lua require('lspconfig').tsserver.setup{ on_attach=require('completion').on_attach }
+" replaces gs
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nmap <silent> gd :lua vim.lsp.buf.definition()<CR>
+nmap <silent> gi :lua vim.lsp.buf.implementation()<CR>
+nmap <silent> pf :lua require('telescope.builtin').find_files()<CR>
+
+
+
