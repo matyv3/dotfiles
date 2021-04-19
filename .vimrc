@@ -46,9 +46,11 @@ Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'flazz/vim-colorschemes'
 Plug 'wakatime/vim-wakatime'
+Plug 'ghifarit53/tokyonight-vim'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp_extensions.nvim'
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -66,6 +68,9 @@ set background=dark
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
+"let g:tokyonight_style = 'night'
+"colorscheme tokyonight
+
 let mapleader=" "
 let g:airline#extensions#tabline#enabled = 1
 let NERDTreeQuitOnOpen=1
@@ -80,6 +85,10 @@ lua << EOF
 	require'lspconfig'.tsserver.setup{ on_attach=require('completion').on_attach }
 	require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 EOF
+
+" === vim-jsx === "
+" Highlight jsx syntax even in non .jsx files
+let g:jsx_ext_required = 0
 
 inoremap jj <Esc>
 inoremap <c-c> <ESC>
@@ -96,6 +105,7 @@ nmap <leader>t :terminal<CR>
 
 " replaces gs
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>td :lua require('telescope.builtin').grep_string({ search = "TODO" })<CR>
 
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nmap <silent> gd :lua vim.lsp.buf.definition()<CR>
