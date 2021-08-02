@@ -114,7 +114,25 @@ nnoremap <leader>gp :Git push<CR>
 nmap <C-S> <Plug>BujoAddnormal
 imap <C-S> <Plug>BujoAddinsert
 
-vnoremap J :m '>+1<CR>gv=gv'
-vnoremap K :m '<-2<CR>gv=gv'
 
+" awesome remaps
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+inoremap <leader>k :m .-2<CR>==
+inoremap <leader>j :m .+1<CR>==
 
+nnoremap Y y$
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
