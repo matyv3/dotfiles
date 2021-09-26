@@ -2,7 +2,7 @@
 
 ACTIVAR="~/personal/activar/activar"
 CHE="~/personal/cheacercate.com.ar"
-AGREE="/var/www/"
+AGREE="/agree"
 
 createWindow() {
     session=$1
@@ -59,7 +59,7 @@ while [ "$#" -gt 0 ]; do
 			sendCommand activar npm "loadnvm && npm run dev"
 			;;
 		"--agree")
-			createSession agree primary -c $agree
+			createSession agree primary -c $AGREE
 			;;
 
     *) echo "Unavailable command... $curr"
