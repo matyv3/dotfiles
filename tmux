@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ACTIVAR="~/projects/activar/activar"
-CHE="~/projects/cheacercate.com.ar"
-AVATAR="/var/www/"
+ACTIVAR="~/personal/activar/activar"
+CHE="~/personal/cheacercate.com.ar"
+AGREE="/var/www/"
 
 createWindow() {
     session=$1
@@ -58,8 +58,8 @@ while [ "$#" -gt 0 ]; do
 			createWindow activar npm -c $ACTIVAR
 			sendCommand activar npm "loadnvm && npm run dev"
 			;;
-		"--avatar")
-			createSession avatar primary -c $AVATAR
+		"--agree")
+			createSession agree primary -c $agree
 			;;
 
     *) echo "Unavailable command... $curr"
