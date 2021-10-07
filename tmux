@@ -2,7 +2,13 @@
 
 ACTIVAR="~/personal/activar/activar"
 CHE="~/personal/cheacercate.com.ar"
-AGREE="/agree"
+AGREE="~/agree"
+AVATAR="~/avatar"
+
+#agree projects
+AGREE_API2="~/agree/agreemarket-api2"
+AGREE_AUTH="~/agree/agreemarket-auth"
+AGREE_FRONT="~/agree/agreemarket-front"
 
 createWindow() {
     session=$1
@@ -55,11 +61,24 @@ while [ "$#" -gt 0 ]; do
 			;;
 		"--activar")
 			createSession activar primary -c $ACTIVAR
+			sendCommand activar primary "loadnvm"
 			createWindow activar npm -c $ACTIVAR
 			sendCommand activar npm "loadnvm && npm run dev"
 			;;
+		"--avatar")
+			createSession avatar primary -c $AVATAR
+			;;
 		"--agree")
-			createSession agree primary -c $AGREE
+			createSession agree api2-auth-front -c $AGREE
+			sendCommand agree api2-auth-front "cd $AGREE_API2/laravel"
+			sendCommand agree api2-auth-front "tmux split-window -h"
+			sendCommand agree api2-auth-front "cd $AGREE_FRONT/laravel"
+			sendCommand agree api2-auth-front "tmux split-window -v"
+			sendCommand agree api2-auth-front "cd $AGREE_API2"
+			createWindow agree webhooks -c $AGREE/agree-webhooks
+			sendCommand agree webhooks "loadnvm && v ."
+			createWindow agree webhooks-server -c $AGREE/agree-webhooks
+			sendCommand agree webhooks-server "loadnvm && npm run dev"
 			;;
 
     *) echo "Unavailable command... $curr"
