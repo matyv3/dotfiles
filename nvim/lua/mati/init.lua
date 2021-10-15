@@ -1,4 +1,4 @@
 
 require("mati.lsp")
-require("mati.compe")
+require("mati.cmp")
 require("mati.telescope")

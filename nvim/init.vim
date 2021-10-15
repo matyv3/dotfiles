@@ -1,5 +1,5 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath=&runtimepath
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"let &packpath=&runtimepath
 "source ~/.vimrc
 
 set path+=**
@@ -10,7 +10,7 @@ set clipboard^=unnamed,unnamedplus
 syntax enable
 set showcmd
 set ruler
-set encoding=utf-8
+set encoding=utf8
 set showmatch
 set sw=2
 set relativenumber
@@ -52,7 +52,10 @@ Plug 'flazz/vim-colorschemes'
 Plug 'wakatime/vim-wakatime'
 " lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-lua/lsp_extensions.nvim'
 " telescope
@@ -67,6 +70,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
 
 set background=dark
@@ -80,6 +84,7 @@ lua require("mati")
 
 let mapleader=" "
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let g:NERDTreeIgnore = ['^node_modules$']
@@ -88,6 +93,7 @@ let g:user_emmet_leader_key=','
 let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
+let g:webdevicons_enable_nerdtree = 1
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

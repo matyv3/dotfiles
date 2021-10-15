@@ -75,10 +75,7 @@ while [ "$#" -gt 0 ]; do
 			sendCommand agree api2-auth-front "cd $AGREE_FRONT/laravel"
 			sendCommand agree api2-auth-front "tmux split-window -v"
 			sendCommand agree api2-auth-front "cd $AGREE_API2"
-			createWindow agree webhooks -c $AGREE/agree-webhooks
-			sendCommand agree webhooks "loadnvm && v ."
-			createWindow agree webhooks-server -c $AGREE/agree-webhooks
-			sendCommand agree webhooks-server "loadnvm && npm run dev"
+			createWindow agree primary -c $AGREE
 			;;
 
     *) echo "Unavailable command... $curr"
