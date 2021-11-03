@@ -25,6 +25,7 @@ set nohlsearch
 set hidden
 set noerrorbells
 set smartcase
+set incsearch
 set scrolloff=8
 set updatetime=50
 set shortmess+=c
@@ -41,7 +42,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'beyondwords/vim-twig'
 Plug 'preservim/nerdcommenter'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'vuciv/vim-bujo'
 " color scheme plugins
 Plug 'morhetz/gruvbox'
@@ -63,6 +63,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+" harpoon
+Plug 'ThePrimeagen/harpoon'
 " prettier
 Plug 'sbdchd/neoformat'
 " Neovim Tree shitter

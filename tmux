@@ -69,12 +69,6 @@ while [ "$#" -gt 0 ]; do
 			createSession avatar primary -c $AVATAR
 			;;
 		"--agree")
-			createSession agree api2-auth-front -c $AGREE
-			sendCommand agree api2-auth-front "cd $AGREE_API2/laravel"
-			sendCommand agree api2-auth-front "tmux split-window -h"
-			sendCommand agree api2-auth-front "cd $AGREE_FRONT/laravel"
-			sendCommand agree api2-auth-front "tmux split-window -v"
-			sendCommand agree api2-auth-front "cd $AGREE_API2"
 			createWindow agree primary -c $AGREE
 			;;
 
