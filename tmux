@@ -69,7 +69,7 @@ while [ "$#" -gt 0 ]; do
 			createSession avatar primary -c $AVATAR
 			;;
 		"--agree")
-			createWindow agree primary -c $AGREE
+			createSession agree primary -c $AGREE
 			;;
 
     *) echo "Unavailable command... $curr"
