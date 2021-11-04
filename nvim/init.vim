@@ -44,7 +44,8 @@ Plug 'beyondwords/vim-twig'
 Plug 'preservim/nerdcommenter'
 Plug 'vuciv/vim-bujo'
 " color scheme plugins
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
@@ -77,10 +78,8 @@ call plug#end()
 
 set background=dark
 let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
-
-"let g:tokyonight_style = 'night'
-"colorscheme tokyonight
 
 lua require("mati")
 
@@ -96,6 +95,12 @@ let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls']
     \ }
 let g:webdevicons_enable_nerdtree = 1
+
+" switch between panes
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
