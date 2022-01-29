@@ -7,7 +7,28 @@ end
 
 require'lspconfig'.tsserver.setup(config({ on_attach=on_attach }))
 require'lspconfig'.vuels.setup{ on_attach=on_attach }
-require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      'bash',
+      'css',
+      'dockerfile',
+      'go',
+      'gomod',
+      'graphql',
+      'html',
+      'javascript',
+      'jsdoc',
+      'json',
+      'python',
+      'tsx',
+      'lua',
+      'typescript',
+      'yaml',
+    },
+	highlight = {
+		enable = true
+	}
+}
 require'lspsaga'.init_lsp_saga()
 
 require'lspconfig'.gopls.setup(config({
